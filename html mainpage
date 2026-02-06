@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delomina City Government</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+        <h1>Delomina City Government</h1>
+        <p class="tagline">Serving the public with transparency and integrity</p>
+    </div>
+</header>
+
+<nav class="main-nav">
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Departments</a></li>
+        <li><a href="#">Public Records</a></li>
+        <li><a href="#">Community</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<main class="content">
+
+    <section class="announcement">
+        <h2>City Announcements</h2>
+        <ul>
+            <li>📄 Annual budget report for fiscal year now available</li>
+            <li>🚧 Road maintenance scheduled on Eastbridge Avenue</li>
+            <li>🏛️ City council meeting scheduled for next Tuesday</li>
+        </ul>
+    </section>
+
+    <section class="quick-links">
+        <h2>Quick Access</h2>
+        <div class="links-grid">
+            <a href="#">Public Safety</a>
+            <a href="#">Emergency Services</a>
+            <a href="#">Missing Persons Registry</a>
+            <a href="#">Permits & Licenses</a>
+            <a href="#">City Ordinances</a>
+            <a href="#">Employment Opportunities</a>
+        </div>
+    </section>
+
+    <section class="about-city">
+        <h2>About Delomina City</h2>
+        <p>
+            Delomina City is committed to maintaining a safe, organized, and supportive
+            environment for all residents. City services are designed to promote public
+            well-being and ensure access to essential resources.
+        </p>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <p>© Delomina City Government</p>
+    <p>Administrative offices operate Monday–Friday, 9:00 AM–5:00 PM</p>
+</footer>
+
+</body>
+</html>
