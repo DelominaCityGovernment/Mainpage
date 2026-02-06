@@ -1,68 +1,159 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Delomina City Government</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+/* ====== RESET & BASE ====== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
-<header class="site-header">
-    <div class="header-inner">
-        <h1>Delomina City Government</h1>
-        <p class="tagline">Serving the public with transparency and integrity</p>
-    </div>
-</header>
+body {
+    background-color: #f7f7f7;
+    color: #222;
+    line-height: 1.6;
+}
 
-<nav class="main-nav">
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Departments</a></li>
-        <li><a href="#">Public Records</a></li>
-        <li><a href="#">Community</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
-</nav>
+/* ====== HEADER ====== */
+.site-header {
+    background: linear-gradient(
+        135deg,
+        #8b1e1e,
+        #b12b2b
+    );
+    color: white;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    border-bottom: 4px solid #d4af37;
+}
 
-<main class="content">
+.site-header h1 {
+    font-size: 2.2rem;
+    letter-spacing: 0.5px;
+}
 
-    <section class="announcement">
-        <h2>City Announcements</h2>
-        <ul>
-            <li>📄 Annual budget report for fiscal year now available</li>
-            <li>🚧 Road maintenance scheduled on Eastbridge Avenue</li>
-            <li>🏛️ City council meeting scheduled for next Tuesday</li>
-        </ul>
-    </section>
+.tagline {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
 
-    <section class="quick-links">
-        <h2>Quick Access</h2>
-        <div class="links-grid">
-            <a href="#">Public Safety</a>
-            <a href="#">Emergency Services</a>
-            <a href="#">Missing Persons Registry</a>
-            <a href="#">Permits & Licenses</a>
-            <a href="#">City Ordinances</a>
-            <a href="#">Employment Opportunities</a>
-        </div>
-    </section>
+/* ====== NAVIGATION ====== */
+.main-nav {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+}
 
-    <section class="about-city">
-        <h2>About Delomina City</h2>
-        <p>
-            Delomina City is committed to maintaining a safe, organized, and supportive
-            environment for all residents. City services are designed to promote public
-            well-being and ensure access to essential resources.
-        </p>
-    </section>
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
 
-</main>
+.main-nav li {
+    margin: 0 1.25rem;
+}
 
-<footer class="site-footer">
-    <p>© Delomina City Government</p>
-    <p>Administrative offices operate Monday–Friday, 9:00 AM–5:00 PM</p>
-</footer>
+.main-nav a {
+    display: inline-block;
+    padding: 1rem 0;
+    text-decoration: none;
+    color: #8b1e1e;
+    font-weight: 600;
+    position: relative;
+}
 
-</body>
-</html>
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #d4af37;
+    transition: width 0.25s ease;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+/* ====== MAIN CONTENT ====== */
+.content {
+    max-width: 1000px;
+    margin: 2.5rem auto;
+    padding: 0 1.25rem;
+}
+
+section {
+    background: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+    color: #8b1e1e;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 0.25rem;
+    font-size: 1.3rem;
+}
+
+/* ====== ANNOUNCEMENTS ====== */
+.announcement ul {
+    list-style: none;
+}
+
+.announcement li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.announcement li:last-child {
+    border-bottom: none;
+}
+
+/* ====== QUICK LINKS ====== */
+.quick-links .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+
+.quick-links a {
+    background: linear-gradient(
+        180deg,
+        #ffffff,
+        #f1f1f1
+    );
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: #222;
+    border-radius: 6px;
+    font-weight: 600;
+    border: 1px solid #ddd;
+    transition: all 0.25s ease;
+}
+
+.quick-links a:hover {
+    transform: translateY(-3px);
+    border-color: #d4af37;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ====== ABOUT SECTION ====== */
+.about-city p {
+    max-width: 750px;
+    color: #444;
+}
+
+/* ====== FOOTER ====== */
+.site-footer {
+    background-color: #8b1e1e;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-size: 0.85rem;
+    border-top: 4px solid #d4af37;
+}
