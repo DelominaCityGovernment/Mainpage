@@ -60,9 +60,21 @@
 </main>
 
 <footer class="site-footer">
-    <p>© Delomina City Government</p>
+    <!-- SECRET CLICK ZONE -->
+    <p id="secret-link">© Delomina City Government</p>
     <p>Administrative offices operate Monday–Friday, 9:00 AM–5:00 PM</p>
 </footer>
+
+<script>
+/*
+  Hidden redirect:
+  Clicking the copyright text silently sends the user
+  to the secret archive page.
+*/
+document.getElementById("secret-link").addEventListener("click", () => {
+    window.location.href = "archive.html";
+});
+</script>
 
 </body>
 </html>
