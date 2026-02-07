@@ -5,6 +5,7 @@
     <title>Missing Persons Registry | Delomina City</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+
     <style>
         /* Page-specific styles */
 
@@ -14,8 +15,19 @@
             margin-bottom: 1.5rem;
         }
 
+        .column-labels {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            padding: 0.75rem;
+            background-color: #e9e9e9;
+            border: 1px solid #ccc;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
         .registry {
             border: 1px solid #ccc;
+            border-top: none;
         }
 
         .entry {
@@ -83,13 +95,22 @@
 <main class="content">
 
     <p class="registry-note">
-        This registry contains records of individuals reported missing within Delomina City
-        limits. Information reflects the most recent administrative review.
+        This registry lists individuals reported missing within Delomina City limits.
+        Dates reflect the last confirmed sighting. Records are updated following administrative review.
+        Click an entry to view additional details.
     </p>
+
+    <!-- COLUMN LABELS -->
+    <div class="column-labels">
+        <span>Name</span>
+        <span>Date of Birth</span>
+        <span>Date Last Seen</span>
+        <span>Status</span>
+    </div>
 
     <div class="registry">
 
-        <!-- NORMAL ENTRY -->
+        <!-- ENTRY 1 -->
         <div class="entry">
             <div class="entry-header">
                 <span>Daniel Mercer</span>
@@ -111,7 +132,7 @@
             </div>
         </div>
 
-        <!-- NORMAL ENTRY -->
+        <!-- ENTRY 2 -->
         <div class="entry">
             <div class="entry-header">
                 <span>Lena Brooks</span>
@@ -123,12 +144,56 @@
                 <p><strong>Last Known Location:</strong> North Delomina</p>
                 <p><strong>Reported By:</strong> Employer</p>
                 <p><strong>Case Notes:</strong> Missed scheduled shift and subsequent contact attempts. Investigation ongoing.</p>
-                <p><strong>Status:</strong> Active search</p>
+                <p><strong>Status:</strong> Active Search</p>
 
                 <div class="meta">
                     Record ID: MP-0045<br>
                     Created: 02/12/2020<br>
                     Last Modified: 02/20/2020
+                </div>
+            </div>
+        </div>
+
+        <!-- ENTRY 3 -->
+        <div class="entry">
+            <div class="entry-header">
+                <span>Marcus Hale</span>
+                <span>06/28/1975</span>
+                <span>10/03/2016</span>
+                <span>Unresolved</span>
+            </div>
+            <div class="entry-details">
+                <p><strong>Last Known Location:</strong> Delomina Harbor</p>
+                <p><strong>Reported By:</strong> Co-worker</p>
+                <p><strong>Case Notes:</strong> Subject left worksite early due to illness. Vehicle later found abandoned near dock area.</p>
+                <p><strong>Status:</strong> Unresolved</p>
+
+                <div class="meta">
+                    Record ID: MP-0026<br>
+                    Created: 10/04/2016<br>
+                    Last Modified: 11/01/2016
+                </div>
+            </div>
+        </div>
+
+        <!-- ENTRY 4 -->
+        <div class="entry">
+            <div class="entry-header">
+                <span>Naomi Pierce</span>
+                <span>01/17/2002</span>
+                <span>07/19/2021</span>
+                <span>Ongoing</span>
+            </div>
+            <div class="entry-details">
+                <p><strong>Last Known Location:</strong> Westfield Mall</p>
+                <p><strong>Reported By:</strong> Friend</p>
+                <p><strong>Case Notes:</strong> Subject separated from group during evening hours. Phone last pinged on-site.</p>
+                <p><strong>Status:</strong> Active Search</p>
+
+                <div class="meta">
+                    Record ID: MP-0052<br>
+                    Created: 07/20/2021<br>
+                    Last Modified: 07/26/2021
                 </div>
             </div>
         </div>
@@ -177,6 +242,9 @@
         });
     });
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
