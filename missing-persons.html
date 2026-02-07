@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Missing Persons Registry | Delomina City</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page-specific styles */
+
+        .registry-note {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .registry {
+            border: 1px solid #ccc;
+        }
+
+        .entry {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .entry-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            padding: 0.75rem;
+            cursor: pointer;
+            background-color: #f8f8f8;
+            font-weight: bold;
+        }
+
+        .entry-header:hover {
+            background-color: #eee;
+        }
+
+        .entry-header span {
+            font-size: 0.9rem;
+        }
+
+        .entry-details {
+            display: none;
+            padding: 1rem;
+            background-color: #ffffff;
+            font-size: 0.9rem;
+        }
+
+        .entry-details p {
+            margin-bottom: 0.5rem;
+        }
+
+        .redacted {
+            background-color: #000;
+            color: #000;
+            padding: 0 4px;
+        }
+
+        .meta {
+            margin-top: 0.75rem;
+            font-size: 0.75rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <h1>Missing Persons Registry</h1>
+    <p class="tagline">Maintained by Delomina City Administration</p>
+</header>
+
+<nav class="main-nav">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Departments</a></li>
+        <li><a href="#">Public Records</a></li>
+        <li><a href="#">Community</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<main class="content">
+
+    <p class="registry-note">
+        This registry contains records of individuals reported missing within Delomina City
+        limits. Information reflects the most recent administrative review.
+    </p>
+
+    <div class="registry">
+
+        <!-- NORMAL ENTRY -->
+        <div class="entry">
+            <div class="entry-header">
+                <span>Daniel Mercer</span>
+                <span>03/14/1991</span>
+                <span>08/22/2018</span>
+                <span>Unresolved</span>
+            </div>
+            <div class="entry-details">
+                <p><strong>Last Known Location:</strong> Eastbridge Station</p>
+                <p><strong>Reported By:</strong> Family member</p>
+                <p><strong>Case Notes:</strong> Subject failed to return home after evening commute. Search conducted for fourteen days. No confirmed sightings.</p>
+                <p><strong>Status:</strong> Unresolved</p>
+
+                <div class="meta">
+                    Record ID: MP-0039<br>
+                    Created: 08/23/2018<br>
+                    Last Modified: 09/05/2018
+                </div>
+            </div>
+        </div>
+
+        <!-- NORMAL ENTRY -->
+        <div class="entry">
+            <div class="entry-header">
+                <span>Lena Brooks</span>
+                <span>11/09/1987</span>
+                <span>02/11/2020</span>
+                <span>Ongoing</span>
+            </div>
+            <div class="entry-details">
+                <p><strong>Last Known Location:</strong> North Delomina</p>
+                <p><strong>Reported By:</strong> Employer</p>
+                <p><strong>Case Notes:</strong> Missed scheduled shift and subsequent contact attempts. Investigation ongoing.</p>
+                <p><strong>Status:</strong> Active search</p>
+
+                <div class="meta">
+                    Record ID: MP-0045<br>
+                    Created: 02/12/2020<br>
+                    Last Modified: 02/20/2020
+                </div>
+            </div>
+        </div>
+
+        <!-- ERASED ENTRY -->
+        <div class="entry">
+            <div class="entry-header">
+                <span>— — — — —</span>
+                <span>11/02/19—</span>
+                <span>05/—/20—</span>
+                <span>Closed</span>
+            </div>
+            <div class="entry-details">
+                <p><strong>Name:</strong> <span class="redacted">████████</span></p>
+                <p><strong>Age at Disappearance:</strong> —</p>
+                <p><strong>Last Known Location:</strong> <span class="redacted">████████████</span></p>
+                <p><strong>Reported By:</strong> <span class="redacted">█████</span></p>
+                <p><strong>Case Notes:</strong> No data available.</p>
+                <p><strong>Status:</strong> Closed</p>
+
+                <div class="meta">
+                    Record ID: MP-0047<br>
+                    Created: 05/—/20—<br>
+                    Last Modified: 09/—/20—<br>
+                    Modification Type: Administrative
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+<footer class="site-footer">
+    <p>© Delomina City Government</p>
+</footer>
+
+<script>
+    const headers = document.querySelectorAll(".entry-header");
+
+    headers.forEach(header => {
+        header.addEventListener("click", () => {
+            const details = header.nextElementSibling;
+            details.style.display =
+                details.style.display === "block" ? "none" : "block";
+        });
+    });
+</script>
+
+</body>
+</html>
