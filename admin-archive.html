@@ -144,28 +144,32 @@ const permissions = {
 };
 
 function submitCode() {
-    const code = document.getElementById("codeInput").value;
+    const code = document.getElementById("codeInput").value.trim();
+
+    let accessGranted = false;
 
     if (code === "20370714") {
         permissions.logs = true;
         unlockTab("logs");
         alert("Access granted: Modification Logs");
-    } else {
-        alert("Invalid or insufficient administrator code.");
+        accessGranted = true;
     }
-}
 
     if (code === "65814179") {
         permissions.audit = true;
         unlockTab("audit");
         alert("Access granted: Internal Audit");
-    } else {
+        accessGranted = true;
+    }
+
+    if (!accessGranted) {
         alert("Invalid or insufficient administrator code.");
     }
 }
 
 function unlockTab(tabName) {
-    document.querySelector(`.tab[data-tab="${tabName}"]`)
+    document
+        .querySelector(`.tab[data-tab="${tabName}"]`)
         .classList.remove("locked");
 }
 
