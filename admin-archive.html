@@ -1,277 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Restricted Administrative Archive</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Restricted Administrative Archive</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
-}
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+    }
 
-header {
-    background-color: #2e2e2e;
-    color: #fff;
-    padding: 1.5rem;
-}
+    header {
+      background-color: #2e2e2e;
+      color: #fff;
+      padding: 1.5rem;
+    }
 
-main {
-    max-width: 1000px;
-    margin: 2rem auto;
-    background: #fff;
-    padding: 2rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
 
-.tabs {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
 
-.tab {
-    padding: 0.6rem 1rem;
-    border: 1px solid #ccc;
-    background: #eee;
-    cursor: pointer;
-    user-select: none;
-}
+    .tab {
+      padding: 0.6rem 1rem;
+      border: 1px solid #ccc;
+      background: #eee;
+      cursor: pointer;
+      user-select: none;
+    }
 
-.tab.locked {
-    color: #777;
-    background: #ddd;
-}
+    .tab.locked {
+      color: #777;
+      background: #ddd;
+    }
 
-.tab.active {
-    background: #fff;
-    border-bottom: 2px solid #000;
-    font-weight: bold;
-}
+    .tab.active {
+      background: #fff;
+      border-bottom: 2px solid #000;
+      font-weight: bold;
+    }
 
-.section {
-    display: none;
-    border-top: 1px solid #ccc;
-    padding-top: 1rem;
-}
+    .section {
+      display: none;
+      border-top: 1px solid #ccc;
+      padding-top: 1rem;
+    }
 
-.section.active {
-    display: block;
-}
+    .section.active {
+      display: block;
+    }
 
-.restricted {
-    color: darkred;
-    font-weight: bold;
-}
+    .restricted {
+      color: darkred;
+      font-weight: bold;
+    }
 
-.code-box {
-    margin-bottom: 1.5rem;
-}
+    .code-box {
+      margin-bottom: 1.5rem;
+    }
 
-input[type="text"] {
-    padding: 0.5rem;
-    font-size: 1rem;
-    width: 200px;
-}
+    input[type="text"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+      width: 200px;
+    }
 
-button {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-}
-</style>
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
-
-<header>
+  <header>
     <h1>Delomina City Government</h1>
     <p>Restricted Administrative Archive</p>
-</header>
+  </header>
 
-<main>
+  <main>
+    <div class="code-box">
+      <label><strong>Administrator Code:</strong></label><br>
+      <input type="text" id="codeInput" placeholder="Enter code">
+      <button onclick="submitCode()">Submit</button>
+    </div>
 
-<div class="code-box">
-    <label><strong>Administrator Code:</strong></label><br>
-    <input type="text" id="codeInput" placeholder="Enter code">
-    <button onclick="submitCode()">Submit</button>
-</div>
+    <div class="tabs">
+      <div class="tab locked" data-tab="logs">Modification Logs</div>
+      <div class="tab locked" data-tab="audit">Internal Audit</div>
+      <div class="tab locked" data-tab="correspondence">Correspondence</div>
+    </div>
 
-<div class="tabs">
-    <div class="tab locked" data-tab="logs">Modification Logs</div>
-    <div class="tab locked" data-tab="audit">Internal Audit</div>
-    <div class="tab locked" data-tab="correspondence">Correspondence</div>
-    <div class="tab locked" data-tab="final">System Notice</div>
-</div>
+    <div id="logs" class="section">
+      <h2>Record Modification Logs</h2>
+      <pre>
+[2037-03-19 22:41] ADMIN_SYS_02 → Modified Missing Persons Entry (MP-2036-441)
+[2037-04-02 01:13] ADMIN_SYS_02 → Metadata Sanitization
+[2037-05-11 23:58] ADMIN_OVERRIDE → Visibility Restriction Applied
+[2037-07-14 03:17] ADMIN_OVERRIDE → Case Marked Inactive
+      </pre>
+    </div>
 
-<!-- LOGS -->
-<div id="logs" class="section">
-<h2>Record Modification Logs</h2>
-<pre>
-[2037-03-19 22:41] ADMIN_SYS_02
-→ Modified Missing Persons Entry (MP-2036-441)
-→ Name field adjusted
-
-[2037-04-02 01:13] ADMIN_SYS_02
-→ Metadata Sanitization
-→ Cross-department references removed
-
-[2037-05-11 23:58] ADMIN_OVERRIDE
-→ Visibility Restriction Applied
-
-[2037-07-14 03:17] ADMIN_OVERRIDE
-→ Case Marked Inactive
-→ No Further Action Logged
-</pre>
-</div>
-
-<!-- AUDIT -->
-<div id="audit" class="section">
-<h2>Internal Audit Review</h2>
-<pre>
+    <div id="audit" class="section">
+      <h2>Internal Audit Review</h2>
+      <pre>
 AUDIT REF: IA-2037-11
 DEPARTMENT: Public Records Oversight
 REVIEW PERIOD: Q1–Q3 2037
 
 Subject:
-Review of administrative modifications applied to select Missing Person
-records originating from the Public Safety database.
-
-Scope:
-This audit examined non-standard record adjustments authorized under
-emergency discretion protocols.
+Review of administrative modifications applied to select Missing Person records.
 
 Findings:
-• Identifying fields were altered following publication
-• Cross-references to incident logs were removed
-• Record visibility reduced across civilian systems
+• Identifying fields altered post-publication
+• Cross-department references removed
+• Visibility reduced across civilian systems
 
-Assessment:
-The record remains technically active, though functionally inaccessible.
+Authorization:
+Executive Continuity Directive 14-B
 
 Conclusion:
 Procedurally compliant.
-No corrective action recommended.
-
 Final Status: CLOSED
-</pre>
-</div>
+      </pre>
+    </div>
 
-<!-- CORRESPONDENCE -->
-<div id="correspondence" class="section">
-<h2>Internal Correspondence</h2>
+    <div id="correspondence" class="section">
+      <p class="restricted">
+        Access restricted. Clearance level insufficient for message retrieval.
+      </p>
+    </div>
+  </main>
 
-<pre>
-FROM: Office of Executive Continuity
-TO: Public Records Oversight
-DATE: 2037-03-18
-SUBJECT: Record Consistency Concerns
+  <script>
+    const permissions = {
+      logs: false,
+      audit: false,
+      correspondence: false
+    };
 
-Identity markers do not reconcile cleanly across departments.
-Timeline alignment produces repeat conflicts.
+    window.addEventListener("DOMContentLoaded", () => {
+      const saved = JSON.parse(localStorage.getItem("adminPermissions"));
+      if (saved) {
+        Object.assign(permissions, saved);
+        for (const key in permissions) {
+          if (permissions[key]) unlockTab(key);
+        }
+      }
+    });
 
-Recommendation:
-Reduce public-facing visibility to prevent data integrity propagation.
-This action is not a closure.
-</pre>
+    function submitCode() {
+      const code = document.getElementById("codeInput").value.trim();
+      let unlocked = null;
 
-<pre>
-FROM: Public Records Oversight
-TO: Office of Executive Continuity
-DATE: 2037-03-19
-
-Visibility adjustments applied.
-The record now behaves as expected under standard search conditions.
-</pre>
-
-<p class="restricted">Some records cannot be made consistent.</p>
-</div>
-
-<!-- FINAL UNLOCK -->
-<div id="final" class="section">
-<h2>System Notice</h2>
-
-<pre>
-Automated Integrity Monitor Alert
-
-A record flagged as inactive continues to generate background references.
-The system cannot resolve this discrepancy.
-
-Manual intervention suppressed.
-Monitoring will continue.
-
-Status: UNRESOLVED
-</pre>
-
-<p class="restricted">
-This notice was not intended for manual review.
-</p>
-</div>
-
-</main>
-
-<script>
-const permissions = {
-    logs: false,
-    audit: false,
-    correspondence: false,
-    final: false
-};
-
-window.addEventListener("DOMContentLoaded", () => {
-    const saved = JSON.parse(localStorage.getItem("adminPermissions"));
-    if (saved) Object.assign(permissions, saved);
-
-    for (const key in permissions) {
-        if (permissions[key]) unlockTab(key);
-    }
-});
-
-function submitCode() {
-    const code = document.getElementById("codeInput").value.trim();
-    let unlockedSection = null;
-
-    if (code === "20370714" && !permissions.logs) {
+      if (code === "20370714" && !permissions.logs) {
         permissions.logs = true;
         unlockTab("logs");
-        unlockedSection = "logs";
-    }
+        unlocked = "logs";
+      }
 
-    if (code === "65814179" && !permissions.audit) {
+      if (code === "65814179" && !permissions.audit) {
         permissions.audit = true;
         unlockTab("audit");
-        unlockedSection = "audit";
-    }
+        unlocked = "audit";
+      }
 
-    if (code === "03045306" && !permissions.correspondence) {
+      if (code === "03045306" && !permissions.correspondence) {
         permissions.correspondence = true;
         unlockTab("correspondence");
-        unlockedSection = "correspondence";
-    }
+        unlocked = "correspondence";
+      }
 
-    // If all three are unlocked, unlock final
-    if (permissions.logs && permissions.audit && permissions.correspondence) {
-        if (!permissions.final) {
-            permissions.final = true;
-            unlockTab("final");
-            unlockedSection = "final";
-        }
-    }
-
-    if (unlockedSection) {
+      if (unlocked) {
         localStorage.setItem("adminPermissions", JSON.stringify(permissions));
-        openSection(unlockedSection);
+        openSection(unlocked);
         alert("Access granted.");
-    } else {
+      } else {
         alert("Invalid or insufficient administrator code.");
+      }
+
+      document.getElementById("codeInput").value = "";
     }
 
-    document.getElementById("codeInput").value = "";
-}
+    function unlockTab(name) {
+      const tab = document.querySelector(`.tab[data-tab="${name}"]`);
+      if (tab) tab.classList.remove("locked");
+    }
 
-</script>
+    function openSection(name) {
+      document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
 
+      const tab = document.querySelector(`.tab[data-tab="${name}"]`);
+      const section = document.getElementById(name);
+
+      if (tab && section) {
+        tab.classList.add("active");
+        section.classList.add("active");
+      }
+    }
+
+    document.querySelectorAll(".tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        const name = tab.dataset.tab;
+        if (!permissions[name]) return;
+
+        openSection(name);
+      });
+    });
+  </script>
 </body>
 </html>
