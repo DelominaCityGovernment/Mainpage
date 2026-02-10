@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="styles.css">
 
     <style>
-        /* Make the secret link look completely normal */
+        /* Force the secret link to actually receive clicks */
         #secret-link {
             cursor: default;
+            pointer-events: auto;
+            position: relative;
+            z-index: 10;
         }
     </style>
 </head>
@@ -73,18 +76,23 @@
 </footer>
 
 <script>
-/*
-  Hidden redirect:
-  SHIFT + clicking the copyright text
-  sends the user to the secret archive page.
-*/
-document.getElementById("secret-link").addEventListener("click", function (e) {
-    if (e.shiftKey) {
-        window.location.href = "admin-archive.html";
+document.addEventListener("DOMContentLoaded", function () {
+    const secret = document.getElementById("secret-link");
+
+    if (!secret) {
+        console.error("Secret link not found");
+        return;
     }
+
+    secret.addEventListener("click", function (e) {
+        console.log("Secret link clicked");
+
+        if (e.shiftKey) {
+            window.location.href = "admin-archive.html";
+        }
+    });
 });
 </script>
 
 </body>
 </html>
-
