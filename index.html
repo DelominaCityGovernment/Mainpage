@@ -5,6 +5,13 @@
     <title>Delomina City Government</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Make the secret link look completely normal */
+        #secret-link {
+            cursor: default;
+        }
+    </style>
 </head>
 <body>
 
@@ -68,13 +75,18 @@
 <script>
 /*
   Hidden redirect:
-  Clicking the copyright text silently sends the user
-  to the secret archive page.
+  Alt + clicking the copyright text
+  silently sends the user to the secret archive page.
 */
-document.getElementById("secret-link").addEventListener("click", () => {
-    window.location.href = "archive.html";
+document.getElementById("secret-link").addEventListener("click", (e) => {
+    if (e.altKey) {
+        window.location.href = "admin-archive.html";
+    }
 });
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
