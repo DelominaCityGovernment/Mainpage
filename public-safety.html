@@ -1,79 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Public Safety Statistics</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #f4f6f8;
-        color: #222;
-        padding: 40px;
-    }
-
-    h1 {
-        margin-bottom: 5px;
-    }
-
-    .subtitle {
-        color: #555;
-        margin-bottom: 20px;
-    }
-
-    table {
-        border-collapse: collapse;
-        width: 420px;
-        background: white;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    th, td {
-        border: 1px solid #ccc;
-        padding: 10px 14px;
-        text-align: left;
-    }
-
-    th {
-        background: #e9ecef;
-    }
-
-    .total {
-        margin-top: 20px;
-        font-weight: bold;
-    }
-
-    .footnote {
-        margin-top: 6px;
-        font-size: 12px;
-        color: #666;
-    }
-</style>
+    <meta charset="UTF-8">
+    <title>Public Safety – Delomina City Government</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<h1>Public Safety Overview</h1>
-<div class="subtitle">Monthly Crime Statistics — March 2037</div>
+<header class="site-header">
+    <div class="header-inner">
+        <h1>Delomina City Government</h1>
+        <p class="tagline">Serving the public with transparency and integrity</p>
+    </div>
+</header>
 
-<table>
-    <tr>
-        <th>Crime Type</th>
-        <th>Reported Incidents</th>
-    </tr>
-    <tr><td>Homicide</td><td>0</td></tr>
-    <tr><td>Armed Robbery</td><td>3</td></tr>
-    <tr><td>Assault</td><td>12</td></tr>
-    <tr><td>Burglary</td><td>9</td></tr>
-    <tr><td>Vehicle Theft</td><td>4</td></tr>
-    <tr><td>Other</td><td>47</td></tr>
-</table>
+<nav class="main-nav">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Departments</a></li>
+        <li><a href="#">Public Records</a></li>
+        <li><a href="#">Community</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
 
-<div class="total">
-    Total Incidents (Resolved): 78
-</div>
+<main class="content">
 
-<div class="footnote">
-    *Resolved incidents include cases closed through administrative action.
-</div>
+    <section class="announcement">
+        <h2>Public Safety Overview</h2>
+        <p>
+            Delomina City continues to maintain crime rates well below the national average
+            through proactive enforcement and rapid response initiatives.
+        </p>
+    </section>
+
+    <section class="quick-links">
+        <h2>Monthly Crime Statistics — March 2037</h2>
+
+        <table class="records-table">
+            <tr>
+                <th>Crime Type</th>
+                <th>Reported Incidents</th>
+            </tr>
+            <tr><td>Homicide</td><td>0</td></tr>
+            <tr><td>Armed Robbery</td><td>3</td></tr>
+            <tr><td>Assault</td><td>12</td></tr>
+            <tr><td>Burglary</td><td>9</td></tr>
+            <tr><td>Vehicle Theft</td><td>4</td></tr>
+            <tr><td>Other</td><td>47</td></tr>
+        </table>
+
+        <p class="record-total">
+            <strong>Total Incidents (Resolved): 78</strong>
+        </p>
+
+        <p class="record-footnote">
+            *Resolved incidents include cases closed through administrative action.
+        </p>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <p>© Delomina City Government</p>
+    <p>Administrative offices operate Monday–Friday, 9:00 AM–5:00 PM</p>
+</footer>
 
 </body>
 </html>
