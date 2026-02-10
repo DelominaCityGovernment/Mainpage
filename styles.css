@@ -146,4 +146,7 @@ section h2 {
     font-size: 0.85em;
     color: #666;
 }
+.hidden {
+  display: none;
+}
 
