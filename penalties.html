@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Municipal Penalty Schedule</title>
+<title>Penalty Schedule</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -26,25 +26,30 @@ main {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
+h2 {
+    margin-top: 0;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 0.95rem;
 }
 
 th, td {
-    padding: 0.75rem;
+    padding: 0.6rem;
     border-bottom: 1px solid #ccc;
-    text-align: left;
 }
 
 th {
-    background-color: #f0f0f0;
+    text-align: left;
+    font-weight: bold;
 }
 
 .note {
     margin-top: 1.5rem;
-    font-size: 0.85rem;
-    color: #555;
+    font-size: 0.8rem;
+    color: #666;
 }
 </style>
 </head>
@@ -52,21 +57,20 @@ th {
 <body>
 
 <header>
-    <h1>Delomina City Finance Office</h1>
-    <p>Municipal Penalty & Assessment Schedule</p>
+    <h1>Delomina City Government</h1>
+    <p>Finance Office — Internal Assessment Schedule</p>
 </header>
 
 <main>
 
+<h2>Base Penalty Assessments</h2>
+
 <table>
-<thead>
 <tr>
     <th>Violation Classification</th>
     <th>Base Assessment</th>
 </tr>
-</thead>
 
-<tbody>
 <tr>
     <td>Class I (Minor)</td>
     <td>$250</td>
@@ -86,15 +90,15 @@ th {
     <td>Class IV (Critical)</td>
     <td>$25,000</td>
 </tr>
-</tbody>
 </table>
 
 <div class="note">
-    Final assessments reflect classification after adjustment.  
-    Assessment totals rounded to the nearest applicable enforcement tier.
+    Final assessment values reflect post-classification adjustments and
+    are rounded to the nearest applicable enforcement tier.
 </div>
 
 </main>
 
 </body>
 </html>
+
