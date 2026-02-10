@@ -103,12 +103,13 @@ button {
     <div class="tab locked" data-tab="logs">Modification Logs</div>
     <div class="tab locked" data-tab="audit">Internal Audit</div>
     <div class="tab locked" data-tab="correspondence">Correspondence</div>
+    <div class="tab locked" data-tab="final">System Notice</div>
 </div>
 
+<!-- LOGS -->
 <div id="logs" class="section">
-    <h2>Record Modification Logs</h2>
-
-    <pre>
+<h2>Record Modification Logs</h2>
+<pre>
 [2037-03-19 22:41] ADMIN_SYS_02
 → Modified Missing Persons Entry (MP-2036-441)
 → Name field adjusted
@@ -122,13 +123,13 @@ button {
 
 [2037-07-14 03:17] ADMIN_OVERRIDE
 → Case Marked Inactive
-→ No Further Action Required
-    </pre>
+→ No Further Action Logged
+</pre>
 </div>
 
+<!-- AUDIT -->
 <div id="audit" class="section">
 <h2>Internal Audit Review</h2>
-
 <pre>
 AUDIT REF: IA-2037-11
 DEPARTMENT: Public Records Oversight
@@ -140,38 +141,73 @@ records originating from the Public Safety database.
 
 Scope:
 This audit examined non-standard record adjustments authorized under
-emergency discretion protocols, including metadata edits, classification
-changes, and visibility restrictions.
+emergency discretion protocols.
 
 Findings:
-• One Missing Person record underwent multiple post-entry modifications
-• Identifying fields were altered following initial publication
-• Cross-references to Public Safety incident logs were removed
-• Record visibility was reduced across civilian-facing systems
-
-Authorization:
-Actions were approved under Executive Continuity Directive 14-B.
-No external oversight was requested or recorded.
+• Identifying fields were altered following publication
+• Cross-references to incident logs were removed
+• Record visibility reduced across civilian systems
 
 Assessment:
-Modifications materially changed how the individual appears in public
-systems without formally closing the case.
-
-The record remains technically active, though functionally inaccessible
-to standard search and reporting tools.
+The record remains technically active, though functionally inaccessible.
 
 Conclusion:
-Actions were determined to be procedurally compliant.
+Procedurally compliant.
 No corrective action recommended.
 
 Final Status: CLOSED
 </pre>
-
-</pre>
 </div>
 
+<!-- CORRESPONDENCE -->
 <div id="correspondence" class="section">
-    <p class="restricted">Access Restricted.</p>
+<h2>Internal Correspondence</h2>
+
+<pre>
+FROM: Office of Executive Continuity
+TO: Public Records Oversight
+DATE: 2037-03-18
+SUBJECT: Record Consistency Concerns
+
+Identity markers do not reconcile cleanly across departments.
+Timeline alignment produces repeat conflicts.
+
+Recommendation:
+Reduce public-facing visibility to prevent data integrity propagation.
+This action is not a closure.
+</pre>
+
+<pre>
+FROM: Public Records Oversight
+TO: Office of Executive Continuity
+DATE: 2037-03-19
+
+Visibility adjustments applied.
+The record now behaves as expected under standard search conditions.
+</pre>
+
+<p class="restricted">Some records cannot be made consistent.</p>
+</div>
+
+<!-- FINAL UNLOCK -->
+<div id="final" class="section">
+<h2>System Notice</h2>
+
+<pre>
+Automated Integrity Monitor Alert
+
+A record flagged as inactive continues to generate background references.
+The system cannot resolve this discrepancy.
+
+Manual intervention suppressed.
+Monitoring will continue.
+
+Status: UNRESOLVED
+</pre>
+
+<p class="restricted">
+This notice was not intended for manual review.
+</p>
 </div>
 
 </main>
@@ -180,21 +216,16 @@ Final Status: CLOSED
 const permissions = {
     logs: false,
     audit: false,
-    correspondence: false
+    correspondence: false,
+    final: false
 };
 
-// Restore permissions from token on page load
 window.addEventListener("DOMContentLoaded", () => {
-    const savedPermissions = JSON.parse(localStorage.getItem("adminPermissions"));
+    const saved = JSON.parse(localStorage.getItem("adminPermissions"));
+    if (saved) Object.assign(permissions, saved);
 
-    if (savedPermissions) {
-        Object.assign(permissions, savedPermissions);
-
-        for (const key in permissions) {
-            if (permissions[key]) {
-                unlockTab(key);
-            }
-        }
+    for (const key in permissions) {
+        if (permissions[key]) unlockTab(key);
     }
 });
 
@@ -202,23 +233,32 @@ function submitCode() {
     const code = document.getElementById("codeInput").value.trim();
     let accessGranted = false;
 
-    if (code === "20370714" && !permissions.logs) {
+    if (code === "20370714") {
         permissions.logs = true;
         unlockTab("logs");
-        alert("Access granted: Modification Logs");
         accessGranted = true;
     }
 
-    if (code === "65814179" && !permissions.audit) {
+    if (code === "65814179") {
         permissions.audit = true;
         unlockTab("audit");
-        alert("Access granted: Internal Audit");
         accessGranted = true;
+    }
+
+    if (code === "03045306") {
+        permissions.correspondence = true;
+        unlockTab("correspondence");
+        accessGranted = true;
+    }
+
+    if (permissions.logs && permissions.audit && permissions.correspondence) {
+        permissions.final = true;
+        unlockTab("final");
     }
 
     if (accessGranted) {
-        // Save token
         localStorage.setItem("adminPermissions", JSON.stringify(permissions));
+        alert("Access granted.");
     } else {
         alert("Invalid or insufficient administrator code.");
     }
@@ -226,20 +266,14 @@ function submitCode() {
     document.getElementById("codeInput").value = "";
 }
 
-function unlockTab(tabName) {
-    document
-        .querySelector(`.tab[data-tab="${tabName}"]`)
-        .classList.remove("locked");
+function unlockTab(name) {
+    document.querySelector(`.tab[data-tab="${name}"]`).classList.remove("locked");
 }
 
 document.querySelectorAll(".tab").forEach(tab => {
     tab.addEventListener("click", () => {
         const name = tab.dataset.tab;
-
-        if (!permissions[name]) {
-            showRestricted();
-            return;
-        }
+        if (!permissions[name]) return;
 
         document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
         document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
@@ -248,13 +282,7 @@ document.querySelectorAll(".tab").forEach(tab => {
         document.getElementById(name).classList.add("active");
     });
 });
-
-function showRestricted() {
-    document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
-    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-}
 </script>
-
 
 </body>
 </html>
