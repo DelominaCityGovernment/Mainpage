@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Restricted Access | Administrative Archive</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #2e2e2e;
+    color: #fff;
+    padding: 1.5rem;
+}
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: #ffffff;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    margin-top: 0;
+}
+
+input[type="password"] {
+    padding: 0.6rem;
+    font-size: 1rem;
+    width: 220px;
+}
+
+button {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.error {
+    color: darkred;
+    margin-top: 1rem;
+}
+
+.logs {
+    display: none;
+    margin-top: 2rem;
+}
+
+.log-entry {
+    border-bottom: 1px solid #ccc;
+    padding: 0.8rem 0;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+.log-entry span {
+    display: block;
+}
+
+.footer-note {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 2rem;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Delomina City Government</h1>
+    <p>Restricted Administrative Archive</p>
+</header>
+
+<main>
+
+<h2>Administrator Verification Required</h2>
+<p>
+This section contains internal modification logs.
+Unauthorized access is prohibited.
+</p>
+
+<label for="adminCode"><strong>Administrator Code:</strong></label><br>
+<input type="password" id="adminCode" placeholder="Enter code">
+<button onclick="checkCode()">Verify</button>
+
+<p id="errorMessage" class="error"></p>
+
+<!-- LOGS -->
+<div id="logs" class="logs">
+    <h2>Record Modification Logs</h2>
+    <p>
+    The following entries document administrative changes made to public records.
+    </p>
+
+    <div class="log-entry">
+        <span>[2037-03-19 22:41]</span>
+        <span>User: ADMIN_SYS_02</span>
+        <span>Action: Modified Missing Persons Entry</span>
+        <span>Details: Case ID MP-2036-441 — Name field adjusted</span>
+    </div>
+
+    <div class="log-entry">
+        <span>[2037-04-02 01:13]</span>
+        <span>User: ADMIN_SYS_02</span>
+        <span>Action: Metadata Sanitization</span>
+        <span>Details: Removed cross-department index references</span>
+    </div>
+
+    <div class="log-entry">
+        <span>[2037-05-11 23:58]</span>
+        <span>User: ADMIN_OVERRIDE</span>
+        <span>Action: Visibility Restriction</span>
+        <span>Details: Record excluded from standard search queries</span>
+    </div>
+
+    <div class="log-entry">
+        <span>[2037-06-07 00:04]</span>
+        <span>User: ADMIN_OVERRIDE</span>
+        <span>Action: Public Description Edited</span>
+        <span>Details: Cause of disappearance generalized</span>
+    </div>
+
+    <div class="log-entry">
+        <span>[2037-07-14 03:17]</span>
+        <span>User: ADMIN_OVERRIDE</span>
+        <span>Action: Final Review</span>
+        <span>Details: Case marked as inactive / no further action required</span>
+    </div>
+
+    <p class="footer-note">
+    Note: Administrative overrides do not require justification under Municipal Record Policy 12.4-C.
+    </p>
+</div>
+
+</main>
+
+<script>
+function checkCode() {
+    const input = document.getElementById("adminCode").value;
+    const error = document.getElementById("errorMessage");
+    const logs = document.getElementById("logs");
+
+    if (input === "2037-0714") {
+        logs.style.display = "block";
+        error.textContent = "";
+    } else {
+        error.textContent = "Invalid administrator code.";
+        logs.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
