@@ -73,8 +73,13 @@
 </footer>
 
 <script>
-document.getElementById("secret-link").addEventListener("click", (e) => {
-    if (e.altKey) {
+/*
+  Hidden redirect:
+  SHIFT + clicking the copyright text
+  sends the user to the secret archive page.
+*/
+document.getElementById("secret-link").addEventListener("click", function (e) {
+    if (e.shiftKey) {
         window.location.href = "admin-archive.html";
     }
 });
@@ -82,3 +87,4 @@ document.getElementById("secret-link").addEventListener("click", (e) => {
 
 </body>
 </html>
+
