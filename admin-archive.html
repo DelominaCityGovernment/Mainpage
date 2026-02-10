@@ -170,28 +170,47 @@ const permissions = {
     correspondence: false
 };
 
+// Restore permissions from token on page load
+window.addEventListener("DOMContentLoaded", () => {
+    const savedPermissions = JSON.parse(localStorage.getItem("adminPermissions"));
+
+    if (savedPermissions) {
+        Object.assign(permissions, savedPermissions);
+
+        for (const key in permissions) {
+            if (permissions[key]) {
+                unlockTab(key);
+            }
+        }
+    }
+});
+
 function submitCode() {
     const code = document.getElementById("codeInput").value.trim();
-
     let accessGranted = false;
 
-    if (code === "20370714") {
+    if (code === "20370714" && !permissions.logs) {
         permissions.logs = true;
         unlockTab("logs");
         alert("Access granted: Modification Logs");
         accessGranted = true;
     }
 
-    if (code === "65814179") {
+    if (code === "65814179" && !permissions.audit) {
         permissions.audit = true;
         unlockTab("audit");
         alert("Access granted: Internal Audit");
         accessGranted = true;
     }
 
-    if (!accessGranted) {
+    if (accessGranted) {
+        // Save token
+        localStorage.setItem("adminPermissions", JSON.stringify(permissions));
+    } else {
         alert("Invalid or insufficient administrator code.");
     }
+
+    document.getElementById("codeInput").value = "";
 }
 
 function unlockTab(tabName) {
@@ -222,6 +241,7 @@ function showRestricted() {
     document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
 }
 </script>
+
 
 </body>
 </html>
