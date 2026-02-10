@@ -2,102 +2,69 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Penalty Schedule</title>
+<title>Municipal Penalty Schedule</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
-}
-
-header {
-    background-color: #2e2e2e;
-    color: #fff;
-    padding: 1.5rem;
-}
-
-main {
-    max-width: 800px;
-    margin: 2rem auto;
-    background: #fff;
-    padding: 2rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-h2 {
-    margin-top: 0;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.95rem;
-}
-
-th, td {
-    padding: 0.6rem;
-    border-bottom: 1px solid #ccc;
-}
-
-th {
-    text-align: left;
-    font-weight: bold;
-}
-
-.note {
-    margin-top: 1.5rem;
-    font-size: 0.8rem;
-    color: #666;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
+<header class="site-header">
     <h1>Delomina City Government</h1>
-    <p>Finance Office — Internal Assessment Schedule</p>
+    <p class="tagline">Finance Office — Internal Assessment Schedule</p>
 </header>
 
-<main>
+<nav class="main-nav">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="ordinances.html">Ordinances</a></li>
+        <li><a href="penalties.html">Penalty Schedule</a></li>
+    </ul>
+</nav>
 
-<h2>Base Penalty Assessments</h2>
+<main class="content">
 
-<table>
-<tr>
-    <th>Violation Classification</th>
-    <th>Base Assessment</th>
-</tr>
+<section>
+    <h2>Base Penalty Assessments</h2>
 
-<tr>
-    <td>Class I (Minor)</td>
-    <td>$250</td>
-</tr>
+    <table class="records-table">
+        <tr>
+            <th>Violation Classification</th>
+            <th>Base Assessment</th>
+        </tr>
 
-<tr>
-    <td>Class II (Moderate)</td>
-    <td>$1,000</td>
-</tr>
+        <tr>
+            <td>Class I (Minor)</td>
+            <td>$250</td>
+        </tr>
 
-<tr>
-    <td>Class III (Severe)</td>
-    <td>$5,000</td>
-</tr>
+        <tr>
+            <td>Class II (Moderate)</td>
+            <td>$1,000</td>
+        </tr>
 
-<tr>
-    <td>Class IV (Critical)</td>
-    <td>$25,000</td>
-</tr>
-</table>
+        <tr>
+            <td>Class III (Severe)</td>
+            <td>$5,000</td>
+        </tr>
 
-<div class="note">
-    Final assessment values reflect post-classification adjustments and
-    are rounded to the nearest applicable enforcement tier.
-</div>
+        <tr>
+            <td>Class IV (Critical)</td>
+            <td>$25,000</td>
+        </tr>
+    </table>
+
+    <p class="record-footnote">
+        Final assessments reflect post-classification adjustments and are rounded
+        to the nearest applicable enforcement tier.
+    </p>
+</section>
 
 </main>
+
+<footer class="site-footer">
+    © Delomina City Government — Internal Use Only
+</footer>
 
 </body>
 </html>
