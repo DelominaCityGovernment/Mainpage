@@ -231,33 +231,38 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function submitCode() {
     const code = document.getElementById("codeInput").value.trim();
-    let accessGranted = false;
+    let unlockedSection = null;
 
-    if (code === "20370714") {
+    if (code === "20370714" && !permissions.logs) {
         permissions.logs = true;
         unlockTab("logs");
-        accessGranted = true;
+        unlockedSection = "logs";
     }
 
-    if (code === "65814179") {
+    if (code === "65814179" && !permissions.audit) {
         permissions.audit = true;
         unlockTab("audit");
-        accessGranted = true;
+        unlockedSection = "audit";
     }
 
-    if (code === "03045306") {
+    if (code === "03045306" && !permissions.correspondence) {
         permissions.correspondence = true;
         unlockTab("correspondence");
-        accessGranted = true;
+        unlockedSection = "correspondence";
     }
 
+    // If all three are unlocked, unlock final
     if (permissions.logs && permissions.audit && permissions.correspondence) {
-        permissions.final = true;
-        unlockTab("final");
+        if (!permissions.final) {
+            permissions.final = true;
+            unlockTab("final");
+            unlockedSection = "final";
+        }
     }
 
-    if (accessGranted) {
+    if (unlockedSection) {
         localStorage.setItem("adminPermissions", JSON.stringify(permissions));
+        openSection(unlockedSection);
         alert("Access granted.");
     } else {
         alert("Invalid or insufficient administrator code.");
@@ -266,22 +271,6 @@ function submitCode() {
     document.getElementById("codeInput").value = "";
 }
 
-function unlockTab(name) {
-    document.querySelector(`.tab[data-tab="${name}"]`).classList.remove("locked");
-}
-
-document.querySelectorAll(".tab").forEach(tab => {
-    tab.addEventListener("click", () => {
-        const name = tab.dataset.tab;
-        if (!permissions[name]) return;
-
-        document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-        document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
-
-        tab.classList.add("active");
-        document.getElementById(name).classList.add("active");
-    });
-});
 </script>
 
 </body>
