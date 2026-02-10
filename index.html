@@ -80,16 +80,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const secret = document.getElementById("secret-link");
 
     if (!secret) {
-        console.error("Secret link not found");
         return;
     }
 
-    secret.addEventListener("click", function (e) {
-        console.log("Secret link clicked");
-
-        if (e.shiftKey) {
-            window.location.href = "admin-archive.html";
-        }
+    secret.addEventListener("click", function () {
+        window.location.href = "admin-archive.html";
     });
 });
 </script>
