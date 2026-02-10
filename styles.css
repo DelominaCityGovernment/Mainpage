@@ -121,3 +121,29 @@ section h2 {
     font-size: 0.85rem;
     border-top: 4px solid #d4af37;
 }
+
+.records-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.records-table th,
+.records-table td {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+}
+
+.records-table th {
+    background-color: #f0f0f0;
+}
+
+.record-total {
+    margin-top: 12px;
+}
+
+.record-footnote {
+    font-size: 0.85em;
+    color: #666;
+}
+
