@@ -146,10 +146,19 @@ const permissions = {
 function submitCode() {
     const code = document.getElementById("codeInput").value;
 
-    if (code === "2037-0714") {
+    if (code === "20370714") {
         permissions.logs = true;
         unlockTab("logs");
         alert("Access granted: Modification Logs");
+    } else {
+        alert("Invalid or insufficient administrator code.");
+    }
+}
+
+    if (code === "65814179") {
+        permissions.audit = true;
+        unlockTab("audit");
+        alert("Access granted: Internal Audit");
     } else {
         alert("Invalid or insufficient administrator code.");
     }
