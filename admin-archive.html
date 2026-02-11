@@ -101,16 +101,28 @@
       <div class="tab locked" data-tab="logs">Modification Logs</div>
       <div class="tab locked" data-tab="audit">Internal Audit</div>
       <div class="tab locked" data-tab="correspondence">Correspondence</div>
-      <div class="tab locked hidden" data-tab="system">System Notice</div>
+      <div class="tab locked hidden" data-tab="system">Continuity Safeguard Notice</div>
     </div>
 
     <div id="logs" class="section">
       <h2>Record Modification Logs</h2>
       <pre>
-[2037-03-19 22:41] ADMIN_SYS_02 → Modified Missing Persons Entry (MP-2036-441)
-[2037-04-02 01:13] ADMIN_SYS_02 → Metadata Sanitization
-[2037-05-11 23:58] ADMIN_OVERRIDE → Visibility Restriction Applied
-[2037-07-14 03:17] ADMIN_OVERRIDE → Case Marked Inactive
+[2038-01-02 02:41] ADMIN_SYS_02 → Modified Missing Persons Entry (MP-0109)
+[2038-01-02 02:44] ADMIN_SYS_02 → Identity Field Normalization
+[2038-01-02 02:49] ADMIN_SYS_02 → Cross-Reference Links Removed (Public Safety, Health Services)
+[2038-01-02 02:56] ADMIN_SYS_02 → Case Notes Reclassified (Internal Access Only)
+
+[2038-01-02 03:13] ADMIN_SYS_02 → Metadata Sanitization
+[2038-01-02 03:17] ADMIN_SYS_02 → Search Index Flags Updated
+[2038-01-02 03:21] ADMIN_SYS_02 → Name-Based Query Weight Reduced
+
+[2038-01-02 03:24] ADMIN_OVERRIDE → Visibility Restriction Applied
+[2038-01-02 03:25] ADMIN_OVERRIDE → External Reporting Disabled
+[2038-01-02 03:26] ADMIN_OVERRIDE → Public API Access Revoked
+
+[2038-01-02 03:28] ADMIN_OVERRIDE → Case Marked Closed
+[2038-01-02 03:29] SYSTEM → Closure Confirmation Logged
+[2038-01-02 03:31] SYSTEM → Integrity Check Completed (Warnings Suppressed)
       </pre>
     </div>
 
@@ -118,23 +130,42 @@
       <h2>Internal Audit Review</h2>
       <pre>
 AUDIT REF: IA-2037-11
-DEPARTMENT: Public Records Oversight
-REVIEW PERIOD: Q1–Q3 2037
+DEPARTMENT: Public Records Changes
+REVIEW PERIOD: Q1–Q2 2038
 
-Subject:
-Review of administrative modifications applied to select Missing Person records.
+Audit Scope:
+This review examined administrative actions taken on select Missing Person records
+within the Public Records database, with emphasis on post-publication alterations,
+access control changes, and inter-departmental data consistency.
+
+Methodology:
+The audit evaluated system logs, authorization trails, and revision histories
+associated with affected records. No interviews were conducted.
 
 Findings:
-• Identifying fields altered post-publication
-• Cross-department references removed
-• Visibility reduced across civilian systems
+• Identifying fields were modified following initial record publication
+• Case notes and descriptive metadata were reclassified and relocated
+• Public-facing visibility was reduced across civilian access systems
+• No corresponding case closure documentation was located
 
-Authorization:
-Executive Continuity Directive 14-B
+Authorization Basis:
+Changes were executed under standing administrative discretion granted to
+Executive Continuity and Records Oversight personnel for data integrity
+management and continuity-risk mitigation.
+
+No individual authorizing official was recorded in the system logs.
+All actions fell within existing permission thresholds at time of execution.
+
+Assessment:
+The modifications materially altered public presentation of the affected records
+without triggering standard escalation or review requirements.
 
 Conclusion:
-Procedurally compliant.
+Actions were determined to be compliant with internal policy as written.
+Current policy does not require retrospective correction.
+
 Final Status: CLOSED
+
       </pre>
     </div>
 
@@ -145,36 +176,70 @@ Final Status: CLOSED
 FROM: Office of Executive Continuity
 TO: Public Records Oversight
 DATE: 2037-03-18
-SUBJECT: Record Consistency Concerns
+SUBJECT: Record Consistency Review — Action Requested
 
-Identity markers do not reconcile cleanly across departments.
-Timeline alignment produces repeat conflicts.
+During routine continuity verification, a variance was identified between
+identity markers associated with a Missing Person record currently indexed
+across Public Safety, Health Services, and Civilian Records systems.
 
-Recommendation:
-Reduce public-facing visibility to prevent data integrity propagation.
-This action is not a closure.
+Specifically, timeline alignment checks are producing repeat conflicts that
+cannot be resolved through automated reconciliation.
+
+To prevent further propagation of inconsistent data across downstream systems,
+we recommend the following interim action:
+
+• Reduce public-facing visibility of the affected record
+• Limit cross-departmental indexing pending resolution
+
+This action is intended as a containment measure only and should not be
+interpreted as case closure or status determination.
 </pre>
 
 <pre>
 FROM: Public Records Oversight
 TO: Office of Executive Continuity
 DATE: 2037-03-19
+SUBJECT: RE: Record Consistency Review — Action Requested
 
-Visibility adjustments applied.
-The record now behaves as expected under standard search conditions.
+Recommended visibility adjustments have been applied.
+
+The record is no longer returned through standard civilian-facing search
+interfaces and will not propagate to external reporting tools under current
+indexing rules.
+
+Residual visibility may persist temporarily within cached name-based queries
+until routine data refresh cycles complete. No further public exposure is
+anticipated once synchronization concludes.
+
+The record remains accessible to authorized personnel under elevated access
+permissions.
+
+Please advise if additional containment measures are required.
+
 </pre>
 </div>
 
   <div id="system" class="section">
-  <h2>System Notice</h2>
+  <h2>Continuity Safeguard Notice</h2>
   <pre>
-AUTOMATED MESSAGE — DO NOT DISTRIBUTE
+CONTINUITY SAFEGUARD NOTICE
 
-This archive was not designed to be accessed in full.
-Cross-reference integrity failure detected.
-Some records were altered to preserve operational continuity.
+The following record has been flagged as incompatible with standard
+chronological reconciliation procedures.
 
-You were not meant to see this.
+Name: Amy [REDACTED]
+Record Classification: Missing Person
+
+Continued unrestricted propagation of this record produces repeat conflicts
+across timeline-dependent systems.
+
+Safeguard protocols were enacted to limit exposure and preserve operational
+continuity.
+
+The subject has not been declared recovered.
+The subject has not been declared deceased.
+
+No further automated action is authorized.
   </pre>
   </div>
   </main>
